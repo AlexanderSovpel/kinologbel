@@ -13,7 +13,6 @@ header {
     height: 75px;
     background: rgba(255, 255, 255, 0.1);
     padding: 0 30px;
-
 }
 
 .logo {
@@ -25,10 +24,75 @@ header {
     font-size: 34pt;
     font-variant: small-caps;
     line-height: 40pt;
-    /*margin-top: -10px;*/
 }
 
 .lesser_logo {
     font-size: 18pt;
     margin-top: -26px;
 }
+
+nav {
+    width: 70%;
+    float: right;
+    margin-top: -80px;
+}
+
+.navigation {
+    /*list-style: none;*/
+    font-size: 22pt;
+    font-weight: 700;
+    font-variant: small-caps;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.navigation > li {
+    display: inline;
+    padding-right: 30px;
+}
+
+.navigation li:last-child {
+    padding-right: 0;
+}
+
+.submenu {
+    display: inline-block;
+    position: absolute;
+    width: 125px;
+    height: 90px;
+    background: rgba(255, 255, 255, 0.5);
+    margin-top: 63px;
+    margin-left: -110px;
+    padding: 0;
+    font-size: 12pt;
+    font-variant: normal;
+    font-weight: 400;
+    list-style: none;
+}
+
+.submenu > li {
+    margin-top: 5px;
+}
+
+.submenu a {
+    color: #000000;
+
+}
+
+/*  ак сделать ::after размером с родительский блок? */
+.navigation > li::after {
+    content: " ";
+    /*text-align: right;*/
+    display: inline-block;
+    line-height: 100px;
+    /*right: 100px;*/
+    position: absolute;
+    /*left: 100%;*/
+    /*float: right;*/
+    width: 5%;
+    margin-top: 40px;
+    margin-left: -50px;
+    height: 3px;
+    background: #ffffff;
+}
+
