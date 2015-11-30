@@ -47,12 +47,20 @@ nav {
 }
 
 .navigation > li {
-    display: inline;
+    display: inline-block;
     padding-right: 30px;
 }
 
 .navigation li:last-child {
     padding-right: 0;
+}
+
+.navigation > li > a {
+    color: #fff;
+}
+
+.navigation > li > a:hover {
+    text-decoration: none;
 }
 
 .submenu {
@@ -62,12 +70,19 @@ nav {
     height: 90px;
     background: rgba(255, 255, 255, 0.5);
     margin-top: 63px;
-    margin-left: -110px;
+    margin-left: -100px;
     padding: 0;
     font-size: 12pt;
     font-variant: normal;
     font-weight: 400;
     list-style: none;
+
+    top: -1000px;
+}
+
+.articles:hover .submenu {
+    top: 0;
+    margin-top: 55px;
 }
 
 .submenu > li {
@@ -76,23 +91,45 @@ nav {
 
 .submenu a {
     color: #000000;
+}
 
+.submenu a:hover {
+    color: #5b4a26;
+    text-decoration: none;
+}
+
+.submenu .submenu_active {
+    color: #5b4a26;
 }
 
 /*  ак сделать ::after размером с родительский блок? */
-.navigation > li::after {
-    content: " ";
-    /*text-align: right;*/
-    display: inline-block;
-    line-height: 100px;
-    /*right: 100px;*/
-    position: absolute;
-    /*left: 100%;*/
-    /*float: right;*/
-    width: 5%;
-    margin-top: 40px;
-    margin-left: -50px;
+/*.navigation > li::after {*/
+    /*content: "";*/
+    /*/!*text-align: right;*!/*/
+    /*/!*display: inline-block;*!/*/
+    /*line-height: 100px;*/
+    /*/!*right: 100px;*!/*/
+    /*position: absolute;*/
+    /*/!*left: 100%;*!/*/
+    /*/!*float: right;*!/*/
+    /*/!*width: inherit;*!/*/
+    /*margin-top: 40px;*/
+    /*margin-left: -50px;*/
+    /*height: 3px;*/
+    /*background: #ffffff;*/
+/*}*/
+
+.menu_line {
     height: 3px;
+    width: 0;
+    transition: width 1s;
     background: #ffffff;
 }
 
+.navigation > li:hover .menu_line {
+    width: 100%;
+}
+
+.active .menu_line {
+    width: 100%;
+}
