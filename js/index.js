@@ -11,6 +11,10 @@ for (var i = 0; i < readMore.length; ++i) {
     });
 }
 
+var gallery = new document.documentURI("../gallery.html");
+
+document.write();
+
 function getMoreArticles() {
     //TODO: ajax-запрос подгрузка следующих 3-х статей
 }
