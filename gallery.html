@@ -38,8 +38,10 @@
             </div>
             <nav>
                 <ul class="navigation">
-                    <li class="text-center  articles"><a href="index.html">статьи</a>
-                        <ul class="submenu">
+                    <li class="text-center  dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="index.html" role="button" aria-haspopup="true"
+                           aria-expanded="false">статьи<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
                             <li><a class="" href="">о здоровье</a></li>
                             <li><a href="">о развитии</a></li>
                             <li>
@@ -60,7 +62,10 @@
             </nav>
         </div>
     </header>
-    <p class="breadcrumb"><a>Галерея</a></p>
+    <ul class="breadcrumb">
+        <li><a href="index.html">Главная</a></li>
+        <li class="active">Галерея</li>
+    </ul>
 
     <aside>
         <input type="search" placeholder="Найти...">

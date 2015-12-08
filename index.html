@@ -21,8 +21,11 @@
             </div>
             <nav>
                 <ul class="navigation">
-                    <li class="text-center active articles"><a href="">статьи</a>
-                        <ul class="submenu">
+
+                    <li class="mobile_articles active">
+                        <a class="dropdown-mobile-toggle" href="#">статьи<span class="caret"></span></a>
+                        <ul class="dropdown-mobile">
+                            <!--<ul class="submenu">-->
                             <li><a class="submenu_active" href="">о здоровье</a></li>
                             <li><a href="">о развитии</a></li>
                             <li>
@@ -31,19 +34,42 @@
                         </ul>
                         <div class="menu_line"></div>
                     </li>
-                    <li class="text-center">
+
+                    <li class="active dropdown articles">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                           aria-expanded="false">статьи<span class="caret"></span></a>
+                    <!--<li class="text-center active articles"><a href="">статьи</a>-->
+                        <ul class="dropdown-menu">
+                        <!--<ul class="submenu">-->
+                            <li><a class="submenu_active" href="">о здоровье</a></li>
+                            <li><a href="">о развитии</a></li>
+                            <li>
+                                <a href="">о воспитании</a>
+                            </li>
+                        </ul>
+                        <div class="menu_line"></div>
+                    </li>
+
+                    <li class="">
                         <a href="gallery.html">галерея</a>
                         <div class="menu_line"></div>
                     </li>
-                    <li class="text-center menu">
-                        <a href="">услуги</a>
+                    <li class="">
+                        <a href="services.html">услуги</a>
                         <div class="menu_line"></div>
                     </li>
                 </ul>
             </nav>
         </div>
     </header>
-    <p class="breadcrumb"><a>Главная</a></p>
+    <ul class="breadcrumb">
+        <li><a href="index.html">Главная</a></li>
+        <li class="active">Статьи</li>
+    </ul>
+
+    <a class="up">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+    </a>
 
     <aside>
         <input type="search" placeholder="Найти...">
@@ -51,6 +77,8 @@
     </aside>
 
     <section class="content">
+
+
 
         <article>
             <h1>рост и развитие щенков</h1>
