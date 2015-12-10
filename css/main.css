@@ -70,7 +70,7 @@ nav {
     /*display: inline-block;*/
     position: absolute;
     width: 125px;
-    height: 90px;
+    /*height: 90px;*/
     background: rgba(255, 255, 255, 0.5);
     /*margin-top: 63px;*/
     /*margin-left: -100px;*/
@@ -390,4 +390,49 @@ footer {
 img.media {
     margin-top: 0;
     vertical-align: top;
+}
+
+.services-content {
+    width: 100%;
+    margin: 0;
+}
+
+.block {
+    height: 200px;
+    margin: 15px 0;
+}
+
+.block p {
+    padding: 15px 0;
+}
+
+.block:nth-child(even) {
+    /*background-color: #5b4a26;*/
+    margin: 0;
+    /*color: #ffffff;*/
+    padding-left: 15px;
+}
+
+.block:nth-child(odd) {
+    padding-right: 15px;
+}
+
+.block:nth-child(odd) img {
+    float: left;
+    margin-right: 30px;
+}
+
+.block:nth-child(even) img {
+    float: right;
+    margin-left: 30px;
+}
+
+.link-button {
+    background-color: #5b4a26;
+    border: none;
+    color: #ffffff;
+}
+
+.trainer {
+    border-radius: 100px;
 }
