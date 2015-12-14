@@ -1,20 +1,17 @@
 /**
  * Created by Alexander on 02.12.15.
  */
+//var content = document.querySelector('.content');
+document.body.onload = loadContent("load_articles");
+window.addEventListener('scroll', function() {
+    if (isScrolledToBottom()){
+        loadContent("load_articles");
+    }
+});
 
-//Показать остальную часть статьи
-var readMore = document.querySelectorAll(".read_more");
-for (var i = 0; i < readMore.length; ++i) {
-    readMore[i].addEventListener('click', function() {
-        this.style.display = "none";
-        this.nextElementSibling.style.display = "block";
-    });
-}
-
-var gallery = new document.documentURI("../gallery.html");
-
-document.write();
-
-function getMoreArticles() {
-    //TODO: ajax-запрос подгрузка следующих 3-х статей
+//РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…-РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… "РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…..."
+function readMoreClick(event) {
+    event.target.style.display = "none";
+    event.target.previousElementSibling.style.height = "auto";
+    event.target.parentNode.firstChild.value;
 }

@@ -7,7 +7,7 @@ var innerMedia = document.querySelector('.inner_media');
 var counter = document.querySelector('.counter');
 var currentImage;
 
-//Открыть изображение/видео
+//РћС‚РєСЂС‹С‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёРµ/РІРёРґРµРѕ
 var media = document.querySelectorAll('.media');
 for (var i = 0; i < media.length; ++i) {
     media[i].addEventListener('click', function() {
@@ -17,9 +17,9 @@ for (var i = 0; i < media.length; ++i) {
         getCurrentImageNumber();
         document.body.style.overflow = "hidden";
     });
-}
+} //TODO: не работает обработчик нажатия ._.
 
-//Закрыть изображение/видео
+//Р—Р°РєСЂС‹С‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёРµ/РІРёРґРµРѕ
 var close = document.querySelector('.close');
 close.addEventListener('click', function() {
     blackScreen.style.display = "none";
@@ -27,7 +27,7 @@ close.addEventListener('click', function() {
 
 });
 
-//Следующее изображение/видео
+//РЎР»РµРґСѓСЋС‰РµРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ/РІРёРґРµРѕ
 var carouselLeft = document.querySelector('.carousel-control.left');
 carouselLeft.addEventListener('click', function() {
     currentImage = currentImage.previousElementSibling || currentImage;
@@ -35,7 +35,7 @@ carouselLeft.addEventListener('click', function() {
     innerMedia.src = currentImage.src;
 });
 
-//Предыдущее изображение/видео
+//РџСЂРµРґС‹РґСѓС‰РµРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ/РІРёРґРµРѕ
 var carouselRight = document.querySelector('.carousel-control.right');
 carouselRight.addEventListener('click', function() {
     currentImage = currentImage.nextElementSibling || currentImage;
@@ -43,17 +43,20 @@ carouselRight.addEventListener('click', function() {
     innerMedia.src = currentImage.src;
 });
 
-//Получить номер изображения/видео в блоке
+//РџРѕР»СѓС‡РёС‚СЊ РЅРѕРјРµСЂ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ/РІРёРґРµРѕ РІ Р±Р»РѕРєРµ
 function getCurrentImageNumber() {
     var index = $(currentImage).index() + 1;
-    counter.innerHTML = index + " из " + currentImage.parentNode.children.length;
-    //console.log(index + " из " + currentImage.parentNode.children.length);
+    counter.innerHTML = index + " РёР· " + currentImage.parentNode.children.length;
+    //console.log(index + " РёР· " + currentImage.parentNode.children.length);
 }
 
 function getCurrentImageDescription() {
-    //TODO: написать ajax-запрос для подгрузки описания из базы
+    //TODO: РЅР°РїРёСЃР°С‚СЊ ajax-Р·Р°РїСЂРѕСЃ РґР»СЏ РїРѕРґРіСЂСѓР·РєРё РѕРїРёСЃР°РЅРёСЏ РёР· Р±Р°Р·С‹
 }
 
-function getMoreImages() {
-    //TODO: ajax-запрос подгрузка следующих 2/3-х блоков фотографий
-}
+document.body.onload = loadContent("load_gallery");
+window.addEventListener('scroll', function() {
+    if (isScrolledToBottom()){
+        loadContent("load_gallery");
+    }
+});
