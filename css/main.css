@@ -48,7 +48,6 @@ nav {
 }
 
 .navigation {
-    /*list-style: none;*/
     font-size: 22pt;
     font-weight: 700;
     font-variant: small-caps;
@@ -75,13 +74,9 @@ nav {
 
 /*.submenu {*/
 .dropdown-menu {
-    /*display: inline-block;*/
     position: absolute;
     width: 125px;
-    /*height: 90px;*/
     background: rgba(255, 255, 255, 0.5);
-    /*margin-top: 63px;*/
-    /*margin-left: -100px;*/
     padding: 0;
     margin: 0;
     font-size: 12pt;
@@ -91,8 +86,6 @@ nav {
     border-radius: 0;
     border: none;
     text-align: left;
-    /*top: 0;*/
-    /*top: -1000px;*/
 }
 
 .dropdown .open {
@@ -104,24 +97,6 @@ nav {
     background: none;
     color: #5b4a26;
 }
-
-/*.articles:hover .submenu {*/
-    /*top: 0;*/
-    /*margin-top: 55px;*/
-/*}*/
-
-/*.submenu > li {*/
-    /*margin-top: 5px;*/
-/*}*/
-
-/*.submenu a {*/
-    /*color: #000000;*/
-/*}*/
-
-/*.submenu a:hover {*/
-    /*color: #5b4a26;*/
-    /*text-decoration: none;*/
-/*}*/
 
 .dropdown-menu > li > a.submenu_active {
     color: #5b4a26;
@@ -277,8 +252,6 @@ footer {
     .content {
         width: 85%;
         margin-left: 20px;
-        /*margin: 0;*/
-        /*margin-top: 50px;*/
     }
 }
 
@@ -379,7 +352,9 @@ footer {
 .media_opened {
     /*position: static;*/
     background-color: #ffffff;
-    width:  900px;
+    /*width:  900px;*/
+    width: 80%;
+    max-width: 900px;
     /*height: 600px;*/
     padding-bottom: 30px;
     margin: 10px auto;
@@ -389,6 +364,7 @@ footer {
     width: 100%;
     /*height: inherit;*/
     padding: 0 40px;
+    /*z-index: 100;*/
 }
 
 .description {
@@ -401,7 +377,7 @@ footer {
     margin: 0;
     color: #5b4a26;
     font-weight: 700;
-    width: 15%;
+    width: 50%;
 }
 
 .close {
@@ -413,16 +389,17 @@ footer {
 }
 
 .carousel-control.left {
-    left: 15%;
+    /*left: 15%;*/
 }
 
 .carousel-control.right {
-    right: 15%; !important;
+    /*right: 15%; !important;*/
 }
 
 .carousel-control.left, .carousel-control.right {
-    top: 50%;
-    background-image: none;
+    /*top: 50%;*/
+    /*background-image: none;*/
+    z-index: -1;
 }
 
 img.media {

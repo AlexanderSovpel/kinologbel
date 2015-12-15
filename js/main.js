@@ -178,3 +178,4 @@ searchBtn.addEventListener('click', function() {
     }
     sendHttpRequest(xmlHttp, null);
 });
+

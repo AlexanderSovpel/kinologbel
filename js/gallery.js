@@ -1,23 +1,55 @@
 /**
  * Created by Alexander on 02.12.15.
  */
+//var media = document.querySelectorAll('.media');
+document.body.onload = function() {
+    loadContent("load_gallery");
+
+    ////Открыть изображение/видео
+    //for (var i = 0; i < media.length; ++i) {
+    //    media[i].addEventListener('click', onMediaClick(i), false);
+    //} //TODO: �� �������� ���������� ������� ._.
+
+    var articleMedia = document.querySelector('.article_media');
+    articleMedia.addEventListener('click', function (event) {
+        alert("Hello!!!");
+        var target = event.target;
+
+        while (target != this) {
+            if (target.className == "media") {
+                openMedia(target);
+                return;
+            }
+            target = target.parentNode;
+        }
+    }, false);
+
+
+};
+
+function openMedia(media) {
+    blackScreen.style.display = "block";
+    innerMedia.src = media.src;
+    currentImage = media;
+    getCurrentImageNumber();
+    document.body.style.overflow = "hidden";
+
+}
+
+window.addEventListener('scroll', function() {
+    if (isScrolledToBottom()){
+        loadContent("load_gallery");
+    }
+});
+
 
 var blackScreen = document.querySelector('.black_screen');
 var innerMedia = document.querySelector('.inner_media');
 var counter = document.querySelector('.counter');
 var currentImage;
 
-//Открыть изображение/видео
-var media = document.querySelectorAll('.media');
-for (var i = 0; i < media.length; ++i) {
-    media[i].addEventListener('click', function() {
-        blackScreen.style.display = "block";
-        innerMedia.src = this.src;
-        currentImage = this;
-        getCurrentImageNumber();
-        document.body.style.overflow = "hidden";
-    });
-} //TODO: �� �������� ���������� ������� ._.
+
+
 
 //Закрыть изображение/видео
 var close = document.querySelector('.close');
@@ -30,7 +62,7 @@ close.addEventListener('click', function() {
 //Следующее изображение/видео
 var carouselLeft = document.querySelector('.carousel-control.left');
 carouselLeft.addEventListener('click', function() {
-    currentImage = currentImage.previousElementSibling || currentImage;
+    currentImage = currentImage.previousElementSibling || currentImage.parentNode.lastElementChild;
     getCurrentImageNumber();
     innerMedia.src = currentImage.src;
 });
@@ -38,7 +70,7 @@ carouselLeft.addEventListener('click', function() {
 //Предыдущее изображение/видео
 var carouselRight = document.querySelector('.carousel-control.right');
 carouselRight.addEventListener('click', function() {
-    currentImage = currentImage.nextElementSibling || currentImage;
+    currentImage = currentImage.nextElementSibling || currentImage.parentNode.firstElementChild;
     getCurrentImageNumber();
     innerMedia.src = currentImage.src;
 });
@@ -53,10 +85,3 @@ function getCurrentImageNumber() {
 function getCurrentImageDescription() {
     //TODO: написать ajax-запрос для подгрузки описания из базы
 }
-
-document.body.onload = loadContent("load_gallery");
-window.addEventListener('scroll', function() {
-    if (isScrolledToBottom()){
-        loadContent("load_gallery");
-    }
-});
