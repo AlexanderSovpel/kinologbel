@@ -23,17 +23,34 @@ document.body.onload = function() {
             target = target.parentNode;
         }
     }, false);
-
-
 };
 
-function openMedia(media) {
-    blackScreen.style.display = "block";
-    innerMedia.src = media.src;
-    currentImage = media;
-    getCurrentImageNumber();
-    document.body.style.overflow = "hidden";
+function openMedia(event, media) {
+        event.preventDefault();
+        InnerMedia(media);
+        blackScreen.style.display = "flex";
+        currentImage = media;
+        getCurrentImageNumber();
+        document.body.style.overflow = "hidden";
+}
 
+function InnerMedia(media) {
+    var div = document.createElement('div');
+    innerMedia = media.cloneNode(true);
+
+    if (innerMedia.tagName == "VIDEO")
+        innerMedia.setAttribute("controls", "");
+
+    innerMedia.className = "inner_media";
+    innerMedia.onclick = null;
+    div.appendChild(innerMedia);
+
+    var description = document.createElement('p');
+    description.innerHTML = innerMedia.title;
+    description.className = "description";
+    div.appendChild(description);
+
+    mediaOpened.appendChild(div);
 }
 
 window.addEventListener('scroll', function() {
@@ -42,38 +59,43 @@ window.addEventListener('scroll', function() {
     }
 });
 
-
+var mediaOpened = document.querySelector('.media_opened');
 var blackScreen = document.querySelector('.black_screen');
-var innerMedia = document.querySelector('.inner_media');
+var innerMedia;
 var counter = document.querySelector('.counter');
 var currentImage;
-
-
-
 
 //Закрыть изображение/видео
 var close = document.querySelector('.close');
 close.addEventListener('click', function() {
     blackScreen.style.display = "none";
     document.body.style.overflow = "auto";
-
+    mediaOpened.removeChild(mediaOpened.lastElementChild);
 });
 
 //Следующее изображение/видео
 var carouselLeft = document.querySelector('.carousel-control.left');
-carouselLeft.addEventListener('click', function() {
-    currentImage = currentImage.previousElementSibling || currentImage.parentNode.lastElementChild;
+
+function nextMedia() {
+    mediaOpened.removeChild(mediaOpened.lastElementChild);
+        currentImage = currentImage.previousElementSibling || currentImage.parentNode.lastElementChild;
     getCurrentImageNumber();
-    innerMedia.src = currentImage.src;
-});
+    InnerMedia(currentImage);
+}
+
+carouselLeft.addEventListener('click', nextMedia);
 
 //Предыдущее изображение/видео
 var carouselRight = document.querySelector('.carousel-control.right');
-carouselRight.addEventListener('click', function() {
-    currentImage = currentImage.nextElementSibling || currentImage.parentNode.firstElementChild;
+
+function previousMedia() {
+    mediaOpened.removeChild(mediaOpened.lastElementChild);
+        currentImage = currentImage.nextElementSibling || currentImage.parentNode.firstElementChild;
     getCurrentImageNumber();
-    innerMedia.src = currentImage.src;
-});
+    InnerMedia(currentImage);
+}
+
+carouselRight.addEventListener('click', previousMedia);
 
 //Получить номер изображения/видео в блоке
 function getCurrentImageNumber() {

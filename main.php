@@ -83,12 +83,15 @@ function loadSpecificGallery($dbConnection, $query) {
 
         while ($photo = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             if ($photo['type'] == "video") {
-                $photos .= "<video width='200px' height='150px' controls>" .
-                    "<source src='" . $photo['path'] . "' type='video/mp4'>" .
+                $photos .= "<video class='media' title='" . $photo['description'] . "' onclick='openMedia(event, this)' controls>" .
+                    "<source src='" . $photo['path'] . "' type='video/mp4' >" .
+                    "Извините, видео не поддерживается вашим браузером. <a href='" . $photo['path'] . "'>Ссылка для скачивания</a>" .
                     "</video>";
             }
             else {
-                $photos .= "<img src='" . $photo['path'] . "' class='media' onclick='openMedia(this)'>";
+                $photos .= "<img src='" . $photo['path'] . "'" .
+                    "title='" . $photo['description'] . "'" .
+                    "class='media' onclick='openMedia(event, this)'>";
             }
         }
 
