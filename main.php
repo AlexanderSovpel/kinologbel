@@ -1,6 +1,6 @@
 <?php
 
-//echo "hello world";
+const to = "kinologbel@gmail.com";
 $dbConnection;
 $connect_error_message = 'РќРµ СѓРґР°Р»РѕСЃСЊ СЃРѕРµРґРёРЅРёС‚СЊСЃСЏ: ';
 $error = "";
@@ -9,9 +9,7 @@ $dbConnection = new mysqli('localhost', 'root', 'alexico1407', 'kinolog_test');
 if ($dbConnection->connect_error) {
    die($connect_error_message . $dbConnection->connect_error);
    }
-//else echo "db РїРѕРґРєР»СЋС‡РµРЅР°\n";
 
-//echo $_REQUEST['action']."\n";
 switch($_REQUEST['action']) {
     case 'load_articles':
         $query = "SELECT * FROM posts LIMIT " . $_REQUEST['from'].",".$_REQUEST['to'];
@@ -37,7 +35,16 @@ switch($_REQUEST['action']) {
         $query = "SELECT * FROM gallery ORDER BY date ASC LIMIT " . $_REQUEST['from'].",".$_REQUEST['to'];
         loadSpecificGallery($dbConnection, $query);
         break;
-//    default: echo "oh no!\n";
+
+    case 'register':
+        $from = "From: " . $_REQUEST['email'];
+        $subject = "Запись на занятие";
+        $message = "Имя: " . $_REQUEST['name'] . "\n" .
+            "Контактный телефон: " . $_REQUEST['tel'] . "\n" .
+            "Время: " . $_REQUEST['time'] . "\n" .
+            "Информация о собаке: " . $_REQUEST['dog-detail'];
+        echo mail(to, $subject, $message, $from);
+        break;
 }
 
 function loadSpecificArticles($dbConnection, $query) {
@@ -45,7 +52,6 @@ function loadSpecificArticles($dbConnection, $query) {
     $articles = "";
 
     while ($article = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-//        echo "что-то\n";
         $articles .= "<article>".
             "<input name='article_id' type='hidden' value=".$article['id'].">".
             "<h1>" . $article['title'] . "</h1>".

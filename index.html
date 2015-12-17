@@ -1,165 +1,164 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
     <script src="js/bootstrap.min.js"></script>
     <title></title>
 </head>
 <body>
 <div class="container">
-
-    <!-- Header -->
     <header>
         <div class="white_stripe">
+
             <div class="logo">
                 <p class="main_logo">кинолог.бел</p>
                 <p class="lesser_logo">о дрессировке собак</p>
             </div>
             <nav>
                 <ul class="navigation">
+                    <li class="active">
+                        <a href="index.html">услуги</a>
+                        <div class="menu_line"></div>
+                    </li>
 
-                    <!-- Mobile version nav -->
-                    <li class="mobile_articles active">
+                    <li class="mobile_articles">
                         <a class="dropdown-mobile-toggle" href="#">статьи<span class="caret"></span></a>
                         <ul class="dropdown-mobile">
-                            <li><a class="submenu_active" href="index.html">все</a></li>
+                            <li><a class="" href="articles.html">все</a></li>
                             <li><a onclick="searchByTag('о здоровье')">о здоровье</a></li>
                             <li><a onclick="searchByTag('о развитии')">о развитии</a></li>
                             <li><a onclick="searchByTag('о воспитании')">о воспитании</a></li>
                         </ul>
                         <div class="menu_line"></div>
                     </li>
-                    <!-- End mobile version nav -->
 
-                    <!-- Usual nav -->
-                    <li class="active dropdown articles">
+                    <li class="dropdown articles">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                            aria-expanded="false">статьи<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a class="submenu_active" href="index.html">все</a></li>
-                            <li><a onclick="searchByTag('о здоровье')">о здоровье</a></li>
-                            <li><a onclick="searchByTag('о развитии')">о развитии</a></li>
-                            <li><a onclick="searchByTag('о воспитании')">о воспитании</a></li>
+                            <li><a id="articles-all" class="" href="articles.html">все</a></li>
+                            <li><a id="articles-health" onclick="searchByTag('о здоровье')">о здоровье</a></li>
+                            <li><a id="articles-grow" onclick="searchByTag('о развитии')">о развитии</a></li>
+                            <li><a id="articles-breed" onclick="searchByTag('о воспитании')">о воспитании</a></li>
                         </ul>
                         <div class="menu_line"></div>
                     </li>
-                    <!-- End usual nav -->
 
                     <li class="">
                         <a href="gallery.html">галерея</a>
-                        <div class="menu_line"></div>
-                    </li>
-                    <li class="">
-                        <a href="services.html">услуги</a>
                         <div class="menu_line"></div>
                     </li>
                 </ul>
             </nav>
         </div>
     </header>
-    <!-- End header -->
-
-    <!-- Breadcrumb-->
     <ul class="breadcrumb">
         <li><a href="index.html">Главная</a></li>
-        <li class="active">Статьи</li>
+        <li class="active">Услуги</li>
     </ul>
-    <!-- End breadcrumb -->
 
-    <!-- Up lift -->
     <a class="up">
         <span class="glyphicon glyphicon-chevron-up"></span>
     </a>
-    <!-- End up lift -->
 
-    <!-- Search field -->
-    <aside>
-        <input type="search" placeholder="Найти...">
-        <input id="search-btn" type="image" src="img/search-icon.png" alt="Поиск">
-    </aside>
-    <!-- End search -->
+    <section class="content services-content">
+        <h1 class="text-center">помощь в дрессировке вашей собаки</h1>
+        <div class="we-help">
+            <img class="trainer" src="img/trainer.png" >
+            <div class="why">
+                <p>Не справляетесь с воспитанием собаки?</p>
+                <p>Хотите доверить такое важное дело специалисту?</p>
+                <p>Не знаете, каким командам научить собаку?</p>
+                <p>Что-то ещё? (???)</p>
+                <p class="text-warning"><strong>Кинолог-профессионал с 7-летним стажем поможет вам!</strong></p>
+                <button class="register-btn btn btn-primary link-button" id="register-fst">записаться</button>
+            </div>
+        </div>
 
-    <!-- Main content -->
-    <section class="content">
-        <!--<article>-->
-            <!--<h1>рост и развитие щенков</h1>-->
-            <!--<time>12.11.2015</time>-->
-            <!--<div class="article_text">-->
-                <!--<p>Щенок по физическому развитию и поведению резко отличается от взрослой собаки. Его организм ещё не-->
-                    <!--сформировался и окреп, и у него маленький жизненный опыт. Вследствие этого на прогулках и-->
-                    <!--воспитательной дрессировке щенок очень быстро устаёт и резко реагирует на все сильные раздражители.-->
-                    <!--Физические возможности щенка зависят от его возрастной группы.-->
-                    <!--Очень важно с первого дня установить со щенком правильное взаимоотношение, добиваясь от него-->
-                    <!--привязанности, преданности, а в дальнейшем любви.-->
-                <!--</p>-->
-                <!--<a class="read_more">Читать полностью...</a>-->
-                <!--<span class="hidden_article">Скрытая часть статьи</span>-->
-            <!--</div>-->
-            <!--<div class="tags">-->
-                <!--<span>о здоровье</span>-->
-                <!--<span>о развитии</span>-->
-                <!--<span>об уходе</span>-->
-            <!--</div>-->
-        <!--</article>-->
+        <h2>Мы предлагаем:</h2>
+        <div class="we-offer">
+            <div class="offers">
+                <div class="offer"><img src="img/certificate.png"><p>проверенный специалист</p></div>
+                <div class="offer"><img src="img/time.png"><p>удобное время</p></div>
+                <div class="offer"><img src="img/group.png"><p>групповые занятия</p></div>
+                <div class="offer"><img src="img/one.png"><p>частная практика</p></div>
+                <div class="offer"><img src="img/mark.png"><p>оборудованная площадка</p></div>
+            </div>
+        </div>
 
-        <!--<article>-->
-            <!--<h1>рост и развитие щенков</h1>-->
-            <!--<time>12.11.2015</time>-->
-            <!--<div class="article_text">-->
-                <!--<p>Щенок по физическому развитию и поведению резко отличается от взрослой собаки. Его организм ещё не-->
-                    <!--сформировался и окреп, и у него маленький жизненный опыт. Вследствие этого на прогулках и-->
-                    <!--воспитательной дрессировке щенок очень быстро устаёт и резко реагирует на все сильные раздражители.-->
-                    <!--Физические возможности щенка зависят от его возрастной группы.-->
-                    <!--Очень важно с первого дня установить со щенком правильное взаимоотношение, добиваясь от него-->
-                    <!--привязанности, преданности, а в дальнейшем любви.-->
-                <!--</p>-->
-                <!--<a class="read_more">Читать полностью...</a>-->
-                <!--<span class="hidden_article">Скрытая часть статьи</span>-->
-            <!--</div>-->
-            <!--<div class="tags">-->
-                <!--<span>о здоровье</span>-->
-                <!--<span>о развитии</span>-->
-                <!--<span>об уходе</span>-->
-            <!--</div>-->
-        <!--</article>-->
+        <h2>Мы научим:</h2>
+        <div class="we-learn">
+                <ul>
+                <li>
+                    <span class="glyphicon glyphicon-ok-circle"></span>
+                    Основам взаимодействия хозяина и собаки
+                </li>
+                <li><span class="glyphicon glyphicon-ok-circle"></span>Базовым командам, которые должна знать любая собака</li>
+                <li><span class="glyphicon glyphicon-ok-circle"></span>Возможной усложнённой программе</li>
+            </ul>
+            <div class="let-register">
+                <p>Если это именно то, что вам нужно, то самое время записаться на наши курсы!</p>
+                <button class="white-register-btn btn-primary register-btn btn link-button" id="register-snd">записаться</button>
+            </div>
+        </div>
 
-        <!--<article>-->
-            <!--<h1>рост и развитие щенков</h1>-->
-            <!--<time>12.11.2015</time>-->
-            <!--<div class="article_text">-->
-                <!--<p>Щенок по физическому развитию и поведению резко отличается от взрослой собаки. Его организм ещё не-->
-                    <!--сформировался и окреп, и у него маленький жизненный опыт. Вследствие этого на прогулках и-->
-                    <!--воспитательной дрессировке щенок очень быстро устаёт и резко реагирует на все сильные раздражители.-->
-                    <!--Физические возможности щенка зависят от его возрастной группы.-->
-                    <!--Очень важно с первого дня установить со щенком правильное взаимоотношение, добиваясь от него-->
-                    <!--привязанности, преданности, а в дальнейшем любви.-->
-                <!--</p>-->
-                <!--<a class="read_more">Читать полностью...</a>-->
-                <!--<span class="hidden_article">Скрытая часть статьи</span>-->
-            <!--</div>-->
-            <!--<div class="tags">-->
-                <!--<span>о здоровье</span>-->
-                <!--<span>о развитии</span>-->
-                <!--<span>об уходе</span>-->
-            <!--</div>-->
-        <!--</article>-->
+        <div class="read-watch">
+            <p>Вы можете научиться азам дрессировки собак и самостоятельно! Для этого смотрите наши обучающие видео
+            и читайте статьи</p>
+            <div><a href="gallery.html"><img src="img/video.png">видео</a>
+            <a href="articles.html"><img src="img/article.png">статьи</a></div>
+        </div>
+
+        <h2>Мы занимаемся тут:</h2>
+        <div class="map" id="googleMap"></div>
+
+        <h2>Начать занятия!</h2>
+        <div class="registration">
+            <form id="registration-form">
+                <div class="form-group">
+                    <label for="name" class="control-label">Имя:</label>
+                    <input type="text" id="name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="email">e-mail:</label>
+                    <input type="email" id="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="tel">Контактный телефон:</label>
+                    <input type="tel" id="tel" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="time">Время занятий:</label>
+                    <select id="time" class="form-control">
+                        <option>пн, 18:00 - 19:30</option>
+                        <option>вт, 16:00 - 17:30</option>
+                        <option>ср, 18:00 - 19:30</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dog-detail">Кличка, возраст и порода собаки:</label>
+                    <textarea id="dog-detail" class="form-control"></textarea>
+                </div>
+                <p class="" id="message"></p>
+                <input class="white-register-btn register-btn btn btn-primary link-button" name="register" type="submit" value="записаться">
+            </form>
+        </div>
     </section>
-    <!-- End main content -->
 
-    <!-- Footer -->
     <footer>
         <p class="design">дизайн &lt;/&gt; Alex Sovpel</p>
         <p class="copy">&copy; кинолог.бел, 2015</p>
+        <p>+375 (29) 679-33-34</p>
+        <a href="mailto:kinologbel@gmail.com">kinologbel@gmail.com</a>
     </footer>
-    <!-- End footer -->
 </div>
 
 <script src="js/main.js"></script>
-<script src="js/index.js"></script>
+<script src="js/services.js"></script>
 </body>
 </html>

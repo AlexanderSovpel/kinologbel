@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/preloader.css">
+    <!--<link rel="stylesheet" href="css/preloader.css">-->
     <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -17,7 +17,7 @@
 
     <div class="media_opened">
         <p class="counter">1 из 10</p>
-        <a class="close">x</a>
+        <a class="close"><span class="glyphicon glyphicon-remove"></span></a>
         <!--<div>-->
             <!--<img src=""  class="inner_media">-->
             <!--<p class="description">Щенок по физическому развитию и поведению резко отличается от взрослой собаки. Его организм ещё не-->
@@ -36,17 +36,23 @@
         <div class="white_stripe">
 
             <div class="logo">
-                <p class="main_logo">кинолог.бел</p>
-                <p class="lesser_logo">о дрессировке собак</p>
+                <a href="index.html">
+                    <p class="main_logo">кинолог.бел</p>
+                    <p class="lesser_logo">о дрессировке собак</p>
+                </a>
             </div>
             <nav>
                 <ul class="navigation">
+                    <li class="">
+                        <a href="index.html">услуги</a>
+                        <div class="menu_line"></div>
+                    </li>
 
                     <!-- Mobile version nav -->
                     <li class="mobile_articles">
                         <a class="dropdown-mobile-toggle" href="#">статьи<span class="caret"></span></a>
                         <ul class="dropdown-mobile">
-                            <li><a class="" href="index.html">все</a></li>
+                            <li><a class="" href="articles.html">все</a></li>
                             <li><a onclick="searchByTag('о здоровье')">о здоровье</a></li>
                             <li><a onclick="searchByTag('о развитии')">о развитии</a></li>
                             <li><a onclick="searchByTag('о воспитании')">о воспитании</a></li>
@@ -60,7 +66,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                            aria-expanded="false">статьи<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a class="" href="index.html">все</a></li>
+                            <li><a href="articles.html">все</a></li>
                             <li><a onclick="searchByTag('о здоровье')">о здоровье</a></li>
                             <li><a onclick="searchByTag('о развитии')">о развитии</a></li>
                             <li><a onclick="searchByTag('о воспитании')">о воспитании</a></li>
@@ -73,16 +79,12 @@
                         <a href="gallery.html" >галерея</a>
                         <div class="menu_line"></div>
                     </li>
-                    <li class="">
-                        <a href="services.html">услуги</a>
-                        <div class="menu_line"></div>
-                    </li>
                 </ul>
             </nav>
         </div>
     </header>
     <ul class="breadcrumb">
-        <li><a href="index.html">Главная</a></li>
+        <li><a href="articles.html">Главная</a></li>
         <li class="active">Галерея</li>
     </ul>
 
@@ -151,7 +153,7 @@
         <!--</article>-->
     </section>
 
-    <footer>
+    <footer class="footer">
         <p class="design">дизайн &lt;/&gt; Alex Sovpel</p>
         <p class="copy">&copy; кинолог.бел, 2015</p>
     </footer>

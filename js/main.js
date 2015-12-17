@@ -2,6 +2,12 @@
  * Created by Alexander on 29.11.15.
  */
 
+//if (screen.width <= 800) {
+//    var jMobile = document.createElement('script');
+//    jMobile.src = "http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js";
+//    document.head.appendChild(jMobile);
+//}
+
 //В«Р°РіСЂСѓР·РёС‚СЊ Р±РѕР»СЊС€Рµ СЃС‚Р°С‚РµР№/С„РѕС‚РѕРє, РµСЃР»Рё РїСЂРѕРєСЂСѓС‚РёР»Рё РґРѕ РєРѕРЅС†Р°
 function isScrolledToBottom() {
     if (!document.documentElement.scrollTop)
@@ -29,6 +35,20 @@ var articlesCounter = 0;
 var content = document.querySelector('.content');
 
 function loadContent(contentType) {
+    // !!!!
+    //var activePage = document.querySelector('.active');
+    //var activePageId = activePage.id;
+    //var loadingId = contentType.split('_')[1];
+    //var pageChanging = false;
+    //
+    //if (activePageId != loadingId) {
+    //    articlesCounter = 0;
+    //    document.querySelector('#' + loadingId).classList.add("active");
+    //    document.querySelector('#' + activePageId).classList.remove("active");
+    //    pageChanging = true;
+    //}
+    //!!!!
+
     var xmlHttp = getHttpRequest();
     var params = "action=" + contentType + "&" +
         "from=" + articlesCounter + "&";
@@ -37,7 +57,20 @@ function loadContent(contentType) {
 
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-            content.innerHTML += xmlHttp.responseText;
+            //!!!!
+            //if (pageChanging) {
+            //    content.innerHTML = xmlHttp.responseText;
+            //    var state = {
+            //        articles: content.innerHTML,
+            //        breadcrumb: breadcrumb.innerHTML
+            //    };
+            //    history.pushState(state, "", loadingId);
+            //}
+            //else
+            //    content.innerHTML += xmlHttp.responseText;
+            //!!!!
+            content.innerHTML += xmlHttp.responseText; //!!!!
+
             console.info(contentType);
         }
     };
@@ -49,9 +82,9 @@ var articles;
 var breadcrumb = document.querySelector('.breadcrumb');
 var dropDownMobile = document.querySelector('.dropdown-mobile');
 var dropDownMenu = document.querySelector('.dropdown-menu');
-//var submenuActive = document.querySelector('.submenu_active');
 
 function searchByTag(tag) {
+
     var xmlHttp = getHttpRequest();
     var params = "action=load_";
 
@@ -59,7 +92,6 @@ function searchByTag(tag) {
         dropDownMenu.children[i].firstElementChild.className = "";
         dropDownMobile.children[i].firstElementChild.className = "";
     }
-    //submenuActive.className = "";
 
     switch (tag) {
         case 'о здоровье':
@@ -78,6 +110,9 @@ function searchByTag(tag) {
             dropDownMobile.children[3].firstElementChild.className = "submenu_active";
             break;
     }
+
+    //if (location.pathname == "/kinologbel/gallery.html")
+    //    location = "articles.html?" + params;
 
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
@@ -110,6 +145,7 @@ function searchByTag(tag) {
                 breadcrumb: breadcrumb.innerHTML
             };
             articles = xmlHttp.responseText;
+            //history.pushState(state, "", "articles" + locationSearch);
             history.pushState(state, "", location.origin + location.pathname + locationSearch);
         }
     };
@@ -178,4 +214,3 @@ searchBtn.addEventListener('click', function() {
     }
     sendHttpRequest(xmlHttp, null);
 });
-
