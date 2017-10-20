@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Администрирование</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/admin.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--<body>-->
+<div class="container">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="white_stripe">
+            <div class="logo">
+                <a href="index.html">
+                    <p class="main_logo">кинолог.бел</p>
+                    <p class="lesser_logo">о дрессировке собак</p>
+                </a>
+            </div>
+            <div class="control">
+                <div id="add" class="add_button" onclick="addNewNote()">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </div>
+                <div id="logout" class="logout_button" onclick="logout()">
+                    <span class="glyphicon glyphicon-log-out"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container_notes">
+        <div class="notes_list">
+            <ul class="nav nav-tabs" id="notes_header">
+                <li role="presentation" class="active"><a href="#notes_list_container" aria-controls="articles" role="tab" data-toggle="tab">Статьи</a></li>
+                <li role="presentation" class=""><a href="#gallery_list_container" aria-controls="gallery" role="tab" data-toggle="tab">Галерея</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="notes_list_container">
+                    <div id="notes_list"></div>
+                    <div id="current" class="no_current_note">
+                        <input type="hidden" id="current_id" value=""/>
+                        <input type="text" id="current_title" class="current_title" placeholder="Здесь может быть ваше название" autocomplete="off"/>
+                        <textarea id="current_text"></textarea>
+                        <input type="text" id="current_tags" placeholder="теги, разделённые, запятыми">
+                        <div>
+                            <input type="submit" id="save" value="Сохранить" onclick="saveNote()"/>
+                            <input type="submit" id="delete" value="Удалить" onclick="deleteNote()"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane " id="gallery_list_container">
+                    <div id="gallery_list"></div>
+                    <form id="current_gallery" class="no_current_note" method="post" enctype="multipart/form-data" action="php/loadGallery.php">
+                        <input type="hidden" id="current_gallery_id" value=""/>
+                        <input type="text" id="current_gallery_title" class="current_title" placeholder="Здесь может быть ваше название" autocomplete="off"/>
+                        <!--<textarea id="current_text"></textarea>-->
+                        <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+                        <input type="file" id="current_files" name="gallery_files" multiple>
+                        <div>
+                            <input type="submit" id="save_gallery" name="upload" value="Сохранить" onclick="saveGallery(event)" />
+                            <input type="submit" id="delete_gallery" value="Удалить" onclick="deleteGallery()"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/admin.js"></script>
+</body>
+</html>

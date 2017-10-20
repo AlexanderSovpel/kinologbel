@@ -21,7 +21,7 @@ registerMain.addEventListener('click', function(event) {
     event.preventDefault();
 
     var name = document.querySelector('#name');
-    var email = document.querySelector('#email');
+    var email = document.querySelector('#name');
     var tel = document.querySelector('#tel');
     var time = document.querySelector('#time');
     var dogDetail = document.querySelector('#dog-detail');
@@ -29,12 +29,6 @@ registerMain.addEventListener('click', function(event) {
     if (name.value == "" || email.value == "" || tel.value == "" || dogDetail.value == "") {
         successMessage.className = "text-danger";
         successMessage.innerHTML = "Пожалуйста, заполните все поля";
-        return;
-    }
-
-    if (!validateEmail(email.value)) {
-        successMessage.className = "text-danger";
-        successMessage.innerHTML = "Введите корректный e-mail адрес";
         return;
     }
 
@@ -46,9 +40,8 @@ registerMain.addEventListener('click', function(event) {
             "time=" + time.value + "&" +
             "dog-detail=" + dogDetail.value;
 
-    xmlHttp.onreadystatechange = function() {
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-            if (xmlHttp.responseText == "1") {
+    $.get("php/main.php?" + params, function(data) {
+            if (data == "1") {
                 successMessage.className = "text-success";
                 successMessage.innerHTML = "Сообщение отправлено";
                 name.value = "";
@@ -61,10 +54,7 @@ registerMain.addEventListener('click', function(event) {
                 successMessage.className = "text-danger";
                 successMessage.innerHTML = "Возникла ошибка при отправке сообщения. Пожалуйста, повторите попытку позже";
             }
-        }
-    }
-
-    sendHttpRequest(xmlHttp, params);
+        });
 });
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -89,7 +79,7 @@ function initialize() {
     };
 
     var marker = new google.maps.Marker({
-        position: myCenter,
+        position: myCenter
     });
 
     var infoWindow = new google.maps.InfoWindow({
@@ -104,4 +94,3 @@ function initialize() {
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
     marker.setMap(map);
 }
-

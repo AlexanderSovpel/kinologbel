@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <title></title>
+</head>
+<body>
+<div class="container">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="white_stripe">
+            <div class="logo">
+                <a href="index.html">
+                    <p class="main_logo">кинолог.бел</p>
+                    <p class="lesser_logo">о дрессировке собак</p>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- Main content -->
+        <h1 class="login-title">Вход в кинолог.бел</h1>
+        <div id="login" class="registration">
+            <div class="form-group">
+            <input id="loginName" type="text" placeholder="логин" class="form-control"/>
+                </div>
+            <div class="form-group">
+            <input id="password" type="password" placeholder="пароль" class="form-control">
+                </div>
+            <p class="text-danger" name="error" id="restore_error"></p>
+            <input type="submit" value="Войти" onclick="login()" class="white-register-btn register-btn btn btn-primary link-button">
+        </div>
+    <!-- End main content -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="design">дизайн &lt;/&gt; Alex Sovpel</p>
+        <p class="copy">&copy; кинолог.бел, 2015</p>
+    </footer>
+    <!-- End footer -->
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>
